@@ -1,4 +1,6 @@
 import "./main.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function RootLayout({
   children,
@@ -12,7 +14,11 @@ export default function RootLayout({
         <meta name="description" content="Frontend Developer & Designer" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
