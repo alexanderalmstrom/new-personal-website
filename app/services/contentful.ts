@@ -1,9 +1,13 @@
 import { createClient } from "contentful";
 
+export const host = process.env.CONTENTFUL_PREVIEW
+  ? "preview.contentful.com"
+  : "cdn.contentful.com";
+
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID as string,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
-  host: "preview.contentful.com",
+  host,
 });
 
 export const getPages = async () => {

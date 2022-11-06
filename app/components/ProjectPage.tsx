@@ -10,7 +10,7 @@ export default function ProjectPage({ slug }: { slug: string }) {
       <header className="text-center">
         <h1 className="text-6xl">{project.fields.name}</h1>
       </header>
-      {renderRichRext(project.fields.description)}
+      <section>{renderRichRext(project.fields.description)}</section>
     </>
   );
 }
