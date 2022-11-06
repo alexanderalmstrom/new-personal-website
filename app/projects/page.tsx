@@ -1,7 +1,16 @@
+import { Suspense } from "react";
+import Loading from "../components/Loading";
+import ProjectList from "../components/ProjectList";
+
 export default function Projects() {
   return (
-    <main>
-      <h1 className="text-2xl">Projects</h1>
-    </main>
+    <>
+      <header>
+        <h1 className="text-6xl text-center">Projects</h1>
+      </header>
+      <Suspense fallback={<Loading />}>
+        <ProjectList />
+      </Suspense>
+    </>
   );
 }

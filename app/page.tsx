@@ -1,7 +1,7 @@
 export default function Page() {
   return (
-    <main>
-      <h1 className="text-2xl">Welcome!</h1>
+    <main className="p-6">
+      <h1 className="text-2xl">Hello!</h1>
     </main>
   );
 }

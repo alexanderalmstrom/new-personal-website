@@ -11,10 +11,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Alexander Almström</title>
-        <meta name="description" content="Frontend Developer & Designer" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="Frontend Developer & UI Designer" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>
+      <body className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
         <Header />
         {children}
         <Footer />

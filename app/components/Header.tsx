@@ -1,22 +1,9 @@
-import Link from "next/link";
-import { client } from "../services/contentful";
+import Nav from "./Nav";
 
-export default async function Header() {
-  const pages = await client.getEntries({
-    content_type: "page",
-    select: ["fields.name", "fields.slug"],
-    order: "sys.createdAt",
-  });
-
+export default function Header() {
   return (
-    <header>
-      <nav>
-        {pages.items.map((page) => (
-          <Link href={page.fields.slug === "home" ? "/" : page.fields.slug}>
-            {page.fields.name}
-          </Link>
-        ))}
-      </nav>
+    <header className="flex gap-x-8 justify-between p-6">
+      <Nav />
     </header>
   );
 }
