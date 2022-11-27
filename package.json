@@ -6,24 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "graphql-codegen -r dotenv/config -c codegen.yml dotenv_config_path=.env.local"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.24",
-    "@types/react-dom": "18.0.8",
+    "@tanstack/react-query": "^4.18.0",
     "contentful": "^10.0.0-beta-v10.8",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.1",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
     "next": "13.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.8.4"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.14.1",
+    "@graphql-codegen/client-preset": "1.1.5",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@types/react-query": "^1.2.9",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1"
+    "tailwindcss": "^3.2.1",
+    "typescript": "^4.9.3"
   }
 }
