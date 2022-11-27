@@ -7,7 +7,7 @@ export default function Nav() {
   const pages = use(getPages());
 
   return (
-    <nav className="flex gap-x-8">
+    <nav className="flex items-center gap-x-8">
       {pages.items.map((page) => (
         <Link
           key={page.sys.id}

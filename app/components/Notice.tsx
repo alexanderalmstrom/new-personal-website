@@ -4,8 +4,10 @@ export interface NoticeProps {
 
 export default function Notice({ children }: NoticeProps) {
   return (
-    <div className="bg-white dark:bg-gray-900 text-sm text-black dark:text-white p-3 text-center dark:border-gray-800">
-      <p>{children}</p>
+    <div className="bg-white dark:bg-gray-900 p-3 border-b dark:border-gray-800">
+      <p className="text-sm text-center text-black dark:text-white">
+        {children}
+      </p>
     </div>
   );
 }
