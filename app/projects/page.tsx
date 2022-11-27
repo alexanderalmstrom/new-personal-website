@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <>
       <header>
-        <h1 className="text-6xl text-center">Projects</h1>
+        <h1 className="text-fluid-2 text-center">Projects</h1>
       </header>
       <Suspense fallback={<Loading />}>
         <ProjectList />
