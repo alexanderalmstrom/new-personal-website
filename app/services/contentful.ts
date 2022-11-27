@@ -7,6 +7,7 @@ export const host = process.env.CONTENTFUL_PREVIEW
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID as string,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
+  environment: (process.env.CONTENTFUL_ENVIRONMENT as string) ?? "master",
   host,
 });
 
@@ -21,7 +22,7 @@ export const getPages = async () => {
 export const getProjects = async () => {
   return await client.getEntries({
     content_type: "project",
-    select: ["fields.name", "fields.slug"],
+    select: ["fields.name", "fields.slug", "fields.media"],
     order: "sys.createdAt",
   });
 };
