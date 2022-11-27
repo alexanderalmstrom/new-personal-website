@@ -21,7 +21,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
+      <body className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white tracking-wide">
         <Header />
         {children}
         <Footer />
