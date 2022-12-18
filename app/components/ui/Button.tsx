@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 export const button = cva(["tracking-wide", "transition-colors"], {
   variants: {
-    intent: {
+    variant: {
       primary: ["bg-purple-900", "text-white", "hover:bg-purple-800"],
       secondary: [
         "bg-black",
@@ -12,25 +12,30 @@ export const button = cva(["tracking-wide", "transition-colors"], {
         "dark:text-black",
         "dark:hover:bg-gray-100",
       ],
-    },
-    size: {
-      small: ["text-sm", "py-2", "px-4", "rounded-sm"],
-      medium: ["text-base", "py-3", "px-6", "rounded-md"],
-      large: ["text-lg", "py-4", "px-8", "rounded-lg"],
-    },
-    modifier: {
       outline: ["border", "border-black", "dark:border-white"],
       link: ["underline", "underline-offset-8"],
+    },
+    size: {
+      small: ["text-sm"],
+      medium: ["text-base"],
+      large: ["text-lg"],
     },
   },
   compoundVariants: [
     {
-      intent: ["primary", "secondary"],
-      className: ["border", "border-transparent"],
+      variant: ["primary", "secondary", "outline"],
+      size: ["small"],
+      className: ["py-2", "px-4", "rounded-sm"],
     },
     {
-      modifier: "link",
-      className: ["border", "border-transparent"],
+      variant: ["primary", "secondary", "outline"],
+      size: ["medium"],
+      className: ["py-3", "px-6", "rounded-md"],
+    },
+    {
+      variant: ["primary", "secondary", "outline"],
+      size: ["large"],
+      className: ["py-4", "px-8", "rounded-lg"],
     },
   ],
   defaultVariants: {
@@ -46,14 +51,12 @@ export interface ButtonProps
 
 export default function Button({
   children,
-  type = "button",
-  intent,
-  modifier,
+  variant,
   size,
   ...props
 }: ButtonProps) {
   return (
-    <button className={button({ intent, size, modifier })} {...props}>
+    <button className={button({ variant, size })} {...props}>
       {children}
     </button>
   );

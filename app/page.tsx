@@ -16,10 +16,10 @@ export default function Page() {
         <Title as="h3" className="text-fluid-3">
           Fluid type 3
         </Title>
-        <Button intent="primary">Button primary</Button>
-        <Button intent="secondary">Button secondary</Button>
-        <Button modifier="outline">Button outline</Button>
-        <Button modifier="link">Button link</Button>
+        <Button variant="primary">Button primary</Button>
+        <Button variant="secondary">Button secondary</Button>
+        <Button variant="outline">Button outline</Button>
+        <Button variant="link">Button link</Button>
       </div>
     </main>
   );
