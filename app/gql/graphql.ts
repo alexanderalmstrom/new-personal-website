@@ -222,6 +222,84 @@ export enum AssetOrder {
   WidthDesc = 'width_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/hxdokojk977s/content_types/category) */
+export type Category = Entry & {
+  __typename?: 'Category';
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<CategoryLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/hxdokojk977s/content_types/category) */
+export type CategoryLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/hxdokojk977s/content_types/category) */
+export type CategoryNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+export type CategoryCollection = {
+  __typename?: 'CategoryCollection';
+  items: Array<Maybe<Category>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type CategoryFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CategoryFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CategoryFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type CategoryLinkingCollections = {
+  __typename?: 'CategoryLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  projectCollection?: Maybe<ProjectCollection>;
+};
+
+
+export type CategoryLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type CategoryLinkingCollectionsProjectCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum CategoryOrder {
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 export type ContentfulMetadata = {
   __typename?: 'ContentfulMetadata';
   tags: Array<Maybe<ContentfulTag>>;
@@ -730,6 +808,7 @@ export enum PageOrder {
 /** [See type definition](https://app.contentful.com/spaces/hxdokojk977s/content_types/project) */
 export type Project = Entry & {
   __typename?: 'Project';
+  categoriesCollection?: Maybe<ProjectCategoriesCollection>;
   contentfulMetadata: ContentfulMetadata;
   description?: Maybe<ProjectDescription>;
   linkedFrom?: Maybe<ProjectLinkingCollections>;
@@ -737,6 +816,15 @@ export type Project = Entry & {
   name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/hxdokojk977s/content_types/project) */
+export type ProjectCategoriesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -768,6 +856,14 @@ export type ProjectNameArgs = {
 /** [See type definition](https://app.contentful.com/spaces/hxdokojk977s/content_types/project) */
 export type ProjectSlugArgs = {
   locale?: InputMaybe<Scalars['String']>;
+};
+
+export type ProjectCategoriesCollection = {
+  __typename?: 'ProjectCategoriesCollection';
+  items: Array<Maybe<Category>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
 };
 
 export type ProjectCollection = {
@@ -806,6 +902,7 @@ export type ProjectDescriptionLinks = {
 export type ProjectFilter = {
   AND?: InputMaybe<Array<InputMaybe<ProjectFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ProjectFilter>>>;
+  categoriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   description_contains?: InputMaybe<Scalars['String']>;
   description_exists?: InputMaybe<Scalars['Boolean']>;
@@ -869,6 +966,8 @@ export type Query = {
   __typename?: 'Query';
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
+  category?: Maybe<Category>;
+  categoryCollection?: Maybe<CategoryCollection>;
   entryCollection?: Maybe<EntryCollection>;
   link?: Maybe<Link>;
   linkCollection?: Maybe<LinkCollection>;
@@ -895,6 +994,23 @@ export type QueryAssetCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AssetFilter>;
+};
+
+
+export type QueryCategoryArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryCategoryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<CategoryOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<CategoryFilter>;
 };
 
 
