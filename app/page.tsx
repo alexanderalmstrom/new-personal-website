@@ -18,7 +18,8 @@ export default function Page() {
         </Title>
         <Button intent="primary">Button primary</Button>
         <Button intent="secondary">Button secondary</Button>
-        <Button intent="outline">Button outline</Button>
+        <Button modifier="outline">Button outline</Button>
+        <Button modifier="link">Button link</Button>
       </div>
     </main>
   );
