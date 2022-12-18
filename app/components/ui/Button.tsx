@@ -2,26 +2,37 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 export type ButtonType = "submit" | "reset" | "button";
 
-export const button = cva(
-  "py-3 px-6 tracking-wide rounded-sm transition-colors",
-  {
-    variants: {
-      intent: {
-        primary: ["bg-black", "text-white", "dark:bg-white", "dark:text-black"],
-        secondary: ["bg-purple-900", "text-white"],
-      },
-      size: {
-        small: ["text-sm", "py-2", "px-4"],
-        medium: ["text-base", "py-3", "px-6"],
-        large: ["text-lg", "py-4", "px-8"],
-      },
+export const button = cva("box-content tracking-wide transition-colors", {
+  variants: {
+    intent: {
+      primary: ["bg-purple-900", "text-white", "hover:bg-purple-800"],
+      secondary: [
+        "bg-black",
+        "text-white",
+        "hover:bg-gray-800",
+        "dark:bg-white",
+        "dark:text-black",
+        "dark:hover:bg-gray-100",
+      ],
+      outline: ["border", "border-black", "dark:border-white"],
     },
-    defaultVariants: {
-      intent: "primary",
-      size: "medium",
+    size: {
+      small: ["text-sm", "py-2", "px-4", "rounded-sm"],
+      medium: ["text-base", "py-3", "px-6", "rounded-md"],
+      large: ["text-lg", "py-4", "px-8", "rounded-lg"],
     },
-  }
-);
+  },
+  compoundVariants: [
+    {
+      intent: ["primary", "secondary"],
+      className: "border border-transparent",
+    },
+  ],
+  defaultVariants: {
+    intent: "primary",
+    size: "medium",
+  },
+});
 
 export interface ButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,

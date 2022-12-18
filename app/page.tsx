@@ -16,9 +16,9 @@ export default function Page() {
         <Title as="h3" className="text-fluid-3">
           Fluid type 3
         </Title>
-        <Button size="small" intent="secondary">
-          Button
-        </Button>
+        <Button intent="primary">Button primary</Button>
+        <Button intent="secondary">Button secondary</Button>
+        <Button intent="outline">Button outline</Button>
       </div>
     </main>
   );
