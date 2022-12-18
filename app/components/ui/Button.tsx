@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 export type ButtonType = "submit" | "reset" | "button";
 
-export const button = cva("box-content tracking-wide transition-colors", {
+export const button = cva("tracking-wide transition-colors", {
   variants: {
     intent: {
       primary: ["bg-purple-900", "text-white", "hover:bg-purple-800"],
