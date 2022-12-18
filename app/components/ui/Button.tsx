@@ -1,7 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
-export type ButtonType = "submit" | "reset" | "button";
-
 export const button = cva("tracking-wide transition-colors", {
   variants: {
     intent: {
@@ -35,10 +33,9 @@ export const button = cva("tracking-wide transition-colors", {
 });
 
 export interface ButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof button> {
   children: React.ReactNode;
-  type?: ButtonType;
 }
 
 export default function Button({
@@ -49,7 +46,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button className={button({ intent, size })} type={type} {...props}>
+    <button className={button({ intent, size })} {...props}>
       {children}
     </button>
   );
